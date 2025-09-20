@@ -1,0 +1,1761 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Global Shield Initiative - Protecting Communities, Empowering Youth</title>
+    
+    <!-- AOS Library -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <style>
+        /* Enhanced design system with deep purple gradient theme */
+        :root {
+            --deep-purple-1: #2D1B69;
+            --deep-purple-2: #3D28A0;
+            --deep-purple-3: #5E5CE6;
+            --deep-purple-4: #7D7AFF;
+            --deep-purple-5: #BF5AF2;
+            --dark-bg: #0F0F1E;
+            --dark-card: #1A1A2E;
+            --white: #ffffff;
+            --gray-1: #F5F5F7;
+            --gray-2: #E8E8ED;
+            --gray-3: #86868B;
+            --gray-4: #424245;
+            --gray-5: #1D1D1F;
+            --gradient: linear-gradient(135deg, var(--deep-purple-1) 0%, var(--deep-purple-2) 25%, var(--deep-purple-3) 50%, var(--deep-purple-5) 100%);
+            --gradient-reverse: linear-gradient(135deg, var(--deep-purple-5) 0%, var(--deep-purple-3) 50%, var(--deep-purple-2) 75%, var(--deep-purple-1) 100%);
+            --gradient-text: linear-gradient(135deg, var(--deep-purple-3), var(--deep-purple-5));
+            --shadow: 0 10px 30px rgba(94, 92, 230, 0.15);
+            --shadow-dark: 0 10px 30px rgba(0, 0, 0, 0.3);
+            --radius-sm: 8px;
+            --radius-md: 12px;
+            --radius-lg: 20px;
+            --transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, "SF Pro Text", "SF Pro Display", "Helvetica Neue", sans-serif;
+            line-height: 1.6;
+            font-weight: 400;
+            color: var(--gray-1);
+            background-color: var(--dark-bg);
+            -webkit-font-smoothing: antialiased;
+            text-rendering: optimizeLegibility;
+            overflow-x: hidden;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 22px;
+        }
+
+        /* Navigation - Enhanced Style */
+        nav {
+            background: rgba(15, 15, 30, 0.95);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            padding: 0;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            border-bottom: 1px solid rgba(94, 92, 230, 0.1);
+            height: 80px;
+            display: flex;
+            align-items: center;
+            transition: var(--transition);
+        }
+
+        .nav-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 22px;
+            width: 100%;
+        }
+
+        .logo {
+            font-size: 26px;
+            font-weight: 700;
+            background: var(--gradient-text);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            transition: var(--transition);
+        }
+
+        .logo::before {
+            content: "🛡️";
+            font-size: 30px;
+        }
+
+        .logo:hover {
+            transform: translateY(-2px);
+        }
+
+        .nav-menu {
+            display: flex;
+            list-style: none;
+            gap: 2.5rem;
+        }
+
+        .nav-menu a {
+            color: var(--gray-1);
+            text-decoration: none;
+            transition: var(--transition);
+            cursor: pointer;
+            font-size: 16px;
+            font-weight: 500;
+            position: relative;
+            padding: 8px 0;
+        }
+
+        .nav-menu a:hover {
+            color: var(--deep-purple-4);
+        }
+
+        .nav-menu a:after {
+            content: "";
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--gradient-text);
+            transition: var(--transition);
+        }
+
+        .nav-menu a:hover:after {
+            width: 100%;
+        }
+
+        .mobile-menu-btn {
+            display: none;
+            background: none;
+            border: none;
+            color: var(--white);
+            font-size: 24px;
+            cursor: pointer;
+        }
+
+        /* Hero Section - Enhanced Style */
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            padding-top: 80px;
+            background: var(--dark-bg);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: "";
+            position: absolute;
+            top: -50%;
+            right: -20%;
+            width: 700px;
+            height: 700px;
+            background: var(--gradient);
+            border-radius: 50%;
+            opacity: 0.1;
+            filter: blur(60px);
+            z-index: 0;
+        }
+
+        .hero-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: center;
+            position: relative;
+            z-index: 2;
+        }
+
+        .hero-text h1 {
+            font-size: 56px;
+            font-weight: 800;
+            margin-bottom: 1.5rem;
+            line-height: 1.1;
+            color: var(--white);
+        }
+
+        .hero-text h1 span {
+            background: var(--gradient-text);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .hero-text p {
+            font-size: 20px;
+            margin-bottom: 2.5rem;
+            color: var(--gray-2);
+            font-weight: 400;
+            line-height: 1.6;
+        }
+
+        .cta-button {
+            background: var(--gradient);
+            color: var(--white);
+            padding: 16px 36px;
+            border: none;
+            border-radius: 50px;
+            font-size: 17px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: var(--transition);
+            text-decoration: none;
+            display: inline-block;
+            box-shadow: var(--shadow);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .cta-button::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+            transition: 0.5s;
+        }
+
+        .cta-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 15px 30px rgba(94, 92, 230, 0.4);
+        }
+
+        .cta-button:hover::before {
+            left: 100%;
+        }
+
+        .hero-image {
+            position: relative;
+            border-radius: var(--radius-lg);
+            overflow: hidden;
+            box-shadow: var(--shadow-dark);
+            transition: var(--transition);
+            transform: perspective(1000px) rotateY(-5deg);
+            border: 1px solid rgba(94, 92, 230, 0.2);
+        }
+
+        .hero-image:hover {
+            transform: perspective(1000px) rotateY(0deg) translateY(-5px);
+        }
+
+        .hero-image img {
+            width: 100%;
+            height: 450px;
+            object-fit: cover;
+        }
+
+        /* Impact Stats - Enhanced Style */
+        .impact-stats {
+            padding: 8rem 0;
+            background: var(--dark-card);
+            position: relative;
+        }
+
+        .impact-stats::before {
+            content: "";
+            position: absolute;
+            bottom: -50%;
+            left: -10%;
+            width: 500px;
+            height: 500px;
+            background: var(--gradient);
+            border-radius: 50%;
+            opacity: 0.05;
+            filter: blur(60px);
+            z-index: 0;
+        }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2.5rem;
+            text-align: center;
+            position: relative;
+            z-index: 2;
+        }
+
+        .stat-card {
+            background: var(--dark-bg);
+            padding: 3rem;
+            border-radius: var(--radius-md);
+            box-shadow: var(--shadow-dark);
+            transition: var(--transition);
+            border: 1px solid rgba(94, 92, 230, 0.1);
+        }
+
+        .stat-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
+            border-color: rgba(94, 92, 230, 0.3);
+        }
+
+        .stat-icon {
+            font-size: 3.5rem;
+            margin-bottom: 1.5rem;
+            display: inline-block;
+            background: var(--gradient);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .stat-number {
+            font-size: 4rem;
+            font-weight: 800;
+            color: var(--white);
+            margin-bottom: 0.5rem;
+            background: var(--gradient-text);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .stat-label {
+            font-size: 18px;
+            color: var(--gray-2);
+            font-weight: 500;
+        }
+
+        /* CTA Sections */
+        .cta-sections {
+            padding: 8rem 0;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3rem;
+            background: var(--dark-bg);
+        }
+
+        .cta-card {
+            background: var(--dark-card);
+            padding: 4rem 3rem;
+            border-radius: var(--radius-lg);
+            text-align: center;
+            box-shadow: var(--shadow-dark);
+            transition: var(--transition);
+            border: 1px solid rgba(94, 92, 230, 0.1);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .cta-card::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 5px;
+            height: 100%;
+            background: var(--gradient);
+            transition: var(--transition);
+        }
+
+        .cta-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 25px 50px rgba(0, 0, 0, 0.4);
+        }
+
+        .cta-card:hover::before {
+            width: 100%;
+            opacity: 0.05;
+        }
+
+        .cta-card h3 {
+            font-size: 32px;
+            margin-bottom: 1.5rem;
+            font-weight: 700;
+            color: var(--white);
+            position: relative;
+            z-index: 2;
+        }
+
+        .cta-card p {
+            margin-bottom: 2.5rem;
+            color: var(--gray-2);
+            font-size: 18px;
+            position: relative;
+            z-index: 2;
+        }
+
+        /* Teen Empowerment Sections */
+        .page-section {
+            min-height: 100vh;
+            padding: 8rem 0 4rem;
+            display: none;
+            background: var(--dark-bg);
+        }
+
+        .page-section.active {
+            display: block;
+        }
+
+        .page-section.home {
+            display: block;
+        }
+
+        /* Page 1: Intro */
+        .teen-intro {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: center;
+        }
+
+        .teen-intro h2 {
+            font-size: 48px;
+            margin-bottom: 1.5rem;
+            font-weight: 800;
+            color: var(--white);
+        }
+
+        .teen-intro h2 span {
+            background: var(--gradient-text);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .teen-intro p {
+            font-size: 20px;
+            line-height: 1.6;
+            color: var(--gray-2);
+            margin-bottom: 2rem;
+        }
+
+        /* Page 2: Cards */
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 2.5rem;
+            padding: 4rem 0;
+        }
+
+        .service-card {
+            background: var(--dark-card);
+            padding: 3rem;
+            border-radius: var(--radius-md);
+            text-align: center;
+            box-shadow: var(--shadow-dark);
+            border: 1px solid rgba(94, 92, 230, 0.1);
+            transition: var(--transition);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .service-card::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 5px;
+            background: var(--gradient);
+            transition: var(--transition);
+        }
+
+        .service-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
+        }
+
+        .service-card:hover::before {
+            height: 100%;
+            opacity: 0.03;
+        }
+
+        .service-icon {
+            font-size: 4rem;
+            margin-bottom: 1.5rem;
+            display: inline-block;
+            background: var(--gradient);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            position: relative;
+            z-index: 2;
+        }
+
+        .service-card h3 {
+            font-size: 24px;
+            margin-bottom: 1rem;
+            font-weight: 700;
+            color: var(--white);
+            position: relative;
+            z-index: 2;
+        }
+
+        .service-card p {
+            color: var(--gray-2);
+            font-size: 18px;
+            position: relative;
+            z-index: 2;
+        }
+
+        /* Page 3: Big Card */
+        .big-card-section {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 80vh;
+        }
+
+        .big-card {
+            background: var(--dark-card);
+            padding: 5rem;
+            border-radius: var(--radius-lg);
+            text-align: center;
+            box-shadow: var(--shadow-dark);
+            max-width: 900px;
+            border: 1px solid rgba(94, 92, 230, 0.1);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .big-card::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 5px;
+            background: var(--gradient);
+        }
+
+        .big-card h2 {
+            font-size: 42px;
+            margin-bottom: 3rem;
+            font-weight: 800;
+            color: var(--white);
+        }
+
+        .big-card h2 span {
+            background: var(--gradient-text);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .big-card ul {
+            list-style: none;
+            font-size: 22px;
+            margin-bottom: 3rem;
+            text-align: left;
+        }
+
+        .big-card li {
+            margin-bottom: 1.5rem;
+            padding-left: 3rem;
+            position: relative;
+            color: var(--gray-2);
+        }
+
+        .big-card li:before {
+            content: "✓";
+            position: absolute;
+            left: 0;
+            color: var(--deep-purple-3);
+            font-size: 28px;
+            font-weight: bold;
+        }
+
+        /* Page 4: Layout Cards */
+        .layout-cards {
+            display: grid;
+            grid-template-columns: 2fr 1fr;
+            gap: 2.5rem;
+            height: 60vh;
+        }
+
+        .main-card {
+            background: var(--dark-card);
+            padding: 4rem;
+            border-radius: var(--radius-lg);
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            text-align: center;
+            box-shadow: var(--shadow-dark);
+            border: 1px solid rgba(94, 92, 230, 0.1);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .main-card::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 5px;
+            height: 100%;
+            background: var(--gradient);
+        }
+
+        .side-cards {
+            display: flex;
+            flex-direction: column;
+            gap: 1.5rem;
+        }
+
+        .side-card {
+            background: var(--dark-card);
+            padding: 2.5rem;
+            border-radius: var(--radius-md);
+            flex: 1;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            box-shadow: var(--shadow-dark);
+            border: 1px solid rgba(94, 92, 230, 0.1);
+            transition: var(--transition);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .side-card::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 3px;
+            height: 100%;
+            background: var(--gradient);
+            transition: var(--transition);
+        }
+
+        .side-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.3);
+        }
+
+        .side-card:hover::before {
+            width: 100%;
+            opacity: 0.03;
+        }
+
+        /* FAQ Section */
+        .faq-section {
+            padding: 4rem 0;
+        }
+
+        .faq-item {
+            background: var(--dark-card);
+            margin-bottom: 1.5rem;
+            border-radius: var(--radius-sm);
+            overflow: hidden;
+            border: 1px solid rgba(94, 92, 230, 0.1);
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+        }
+
+        .faq-item:hover {
+            border-color: rgba(94, 92, 230, 0.3);
+        }
+
+        .faq-question {
+            background: var(--dark-card);
+            padding: 2rem;
+            cursor: pointer;
+            font-weight: 600;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-size: 18px;
+            color: var(--white);
+            transition: var(--transition);
+        }
+
+        .faq-question:hover {
+            color: var(--deep-purple-4);
+        }
+
+        .faq-answer {
+            padding: 0 2rem 2rem;
+            display: none;
+            color: var(--gray-2);
+            line-height: 1.6;
+            font-size: 17px;
+        }
+
+        .faq-answer.active {
+            display: block;
+        }
+
+        /* Contact Section */
+        .contact-section {
+            padding: 8rem 0;
+            background: var(--dark-card);
+        }
+
+        .contact-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 5rem;
+        }
+
+        .contact-form {
+            background: var(--dark-bg);
+            padding: 3rem;
+            border-radius: var(--radius-lg);
+            box-shadow: var(--shadow-dark);
+            border: 1px solid rgba(94, 92, 230, 0.1);
+        }
+
+        .form-group {
+            margin-bottom: 2rem;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 1rem;
+            font-weight: 600;
+            font-size: 17px;
+            color: var(--white);
+        }
+
+        .form-group input, .form-group textarea {
+            width: 100%;
+            padding: 1.2rem;
+            border: 1px solid rgba(94, 92, 230, 0.2);
+            border-radius: var(--radius-sm);
+            background: rgba(15, 15, 30, 0.5);
+            color: var(--white);
+            font-size: 17px;
+            transition: var(--transition);
+        }
+
+        .form-group input:focus, .form-group textarea:focus {
+            border-color: var(--deep-purple-3);
+            outline: none;
+            box-shadow: 0 0 0 3px rgba(94, 92, 230, 0.1);
+        }
+
+        .social-links {
+            display: flex;
+            gap: 1.2rem;
+            margin-top: 3rem;
+        }
+
+        .social-link {
+            display: inline-block;
+            width: 55px;
+            height: 55px;
+            background: var(--gradient);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.4rem;
+            color: white;
+            text-decoration: none;
+            transition: var(--transition);
+            box-shadow: var(--shadow);
+        }
+
+        .social-link:hover {
+            transform: translateY(-5px) scale(1.1);
+            box-shadow: 0 12px 25px rgba(94, 92, 230, 0.4);
+        }
+
+        /* Footer */
+        footer {
+            background: var(--dark-card);
+            padding: 5rem 0 3rem;
+            color: var(--gray-2);
+            position: relative;
+            overflow: hidden;
+        }
+
+        footer::before {
+            content: "";
+            position: absolute;
+            top: -50%;
+            left: -20%;
+            width: 500px;
+            height: 500px;
+            background: var(--gradient);
+            border-radius: 50%;
+            opacity: 0.03;
+            filter: blur(60px);
+            z-index: 0;
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 3rem;
+            margin-bottom: 4rem;
+            position: relative;
+            z-index: 2;
+        }
+
+        .footer-content h4 {
+            color: var(--white);
+            margin-bottom: 1.5rem;
+            font-size: 20px;
+            font-weight: 700;
+        }
+
+        .footer-content p {
+            color: var(--gray-2);
+            line-height: 1.6;
+            font-size: 17px;
+        }
+
+        .trust-badges {
+            display: flex;
+            justify-content: center;
+            gap: 1.5rem;
+            margin: 4rem 0;
+            flex-wrap: wrap;
+            position: relative;
+            z-index: 2;
+        }
+
+        .trust-badge {
+            background: rgba(94, 92, 230, 0.1);
+            padding: 1rem 2rem;
+            border-radius: 50px;
+            font-size: 15px;
+            color: var(--deep-purple-4);
+            font-weight: 500;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            border: 1px solid rgba(94, 92, 230, 0.2);
+            transition: var(--transition);
+        }
+
+        .trust-badge:hover {
+            background: rgba(94, 92, 230, 0.2);
+            transform: translateY(-2px);
+        }
+
+        /* Navigation Buttons */
+        .nav-buttons {
+            position: fixed;
+            bottom: 2.5rem;
+            right: 2.5rem;
+            display: flex;
+            gap: 1.2rem;
+            z-index: 1000;
+        }
+
+        .nav-btn {
+            background: var(--gradient);
+            border: none;
+            padding: 1.2rem;
+            border-radius: 50%;
+            color: white;
+            font-size: 1.4rem;
+            cursor: pointer;
+            box-shadow: var(--shadow-dark);
+            width: 60px;
+            height: 60px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: var(--transition);
+        }
+
+        .nav-btn:hover {
+            transform: scale(1.1);
+            box-shadow: 0 10px 30px rgba(94, 92, 230, 0.5);
+        }
+
+        /* Apple-style section headers */
+        .section-header {
+            text-align: center;
+            margin-bottom: 4.5rem;
+        }
+
+        .section-header h2 {
+            font-size: 48px;
+            font-weight: 800;
+            margin-bottom: 1.5rem;
+            color: var(--white);
+        }
+
+        .section-header h2 span {
+            background: var(--gradient-text);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .section-header p {
+            font-size: 22px;
+            color: var(--gray-2);
+            max-width: 700px;
+            margin: 0 auto;
+        }
+
+        /* Enhanced animations */
+        @keyframes float {
+            0% { transform: translateY(0px); }
+            50% { transform: translateY(-12px); }
+            100% { transform: translateY(0px); }
+        }
+
+        .floating {
+            animation: float 6s ease-in-out infinite;
+        }
+
+        /* Progress indicator */
+        .progress-indicator {
+            position: fixed;
+            top: 80px;
+            left: 0;
+            width: 100%;
+            height: 3px;
+            background: rgba(94, 92, 230, 0.2);
+            z-index: 1001;
+        }
+
+        .progress-bar {
+            height: 100%;
+            background: var(--gradient);
+            width: 0%;
+            transition: width 0.3s ease;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 1024px) {
+            .hero-text h1 {
+                font-size: 48px;
+            }
+            
+            .section-header h2 {
+                font-size: 42px;
+            }
+        }
+
+        @media (max-width: 834px) {
+            .hero-content, .teen-intro, .contact-content, .cta-sections, .layout-cards {
+                grid-template-columns: 1fr;
+                gap: 3.5rem;
+            }
+            
+            .hero-text h1 {
+                font-size: 42px;
+            }
+            
+            .nav-menu {
+                display: none;
+                position: absolute;
+                top: 80px;
+                left: 0;
+                width: 100%;
+                background: var(--dark-card);
+                flex-direction: column;
+                padding: 2rem;
+                gap: 1.5rem;
+                box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+            }
+            
+            .nav-menu.active {
+                display: flex;
+            }
+            
+            .mobile-menu-btn {
+                display: block;
+            }
+            
+            .stats-grid, .services-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .section-header h2 {
+                font-size: 36px;
+            }
+            
+            .section-header p {
+                font-size: 18px;
+            }
+            
+            .big-card {
+                padding: 3rem;
+            }
+            
+            .layout-cards {
+                grid-template-columns: 1fr;
+                height: auto;
+                gap: 2rem;
+            }
+            
+            .side-cards {
+                flex-direction: row;
+                overflow-x: auto;
+                padding-bottom: 1rem;
+            }
+            
+            .side-card {
+                min-width: 250px;
+            }
+        }
+
+        @media (max-width: 428px) {
+            .hero-text h1 {
+                font-size: 36px;
+            }
+            
+            .hero-text p {
+                font-size: 18px;
+            }
+            
+            .stat-number {
+                font-size: 3.5rem;
+            }
+            
+            .cta-card {
+                padding: 3rem 2rem;
+            }
+            
+            .big-card {
+                padding: 2.5rem 1.8rem;
+            }
+            
+            .main-card {
+                padding: 3rem 2rem;
+            }
+            
+            .nav-buttons {
+                bottom: 1.5rem;
+                right: 1.5rem;
+            }
+            
+            .nav-btn {
+                width: 50px;
+                height: 50px;
+            }
+            
+            .section-header h2 {
+                font-size: 32px;
+            }
+            
+            .section-header p {
+                font-size: 16px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Progress Indicator -->
+    <div class="progress-indicator">
+        <div class="progress-bar" id="progressBar"></div>
+    </div>
+
+    <!-- Navigation -->
+    <nav id="navbar">
+        <div class="nav-container">
+            <div class="logo">Global Shield Initiative</div>
+            <ul class="nav-menu" id="navMenu">
+                <li><a onclick="showPage('home')">Home</a></li>
+                <li><a onclick="showPage('about')">About</a></li>
+                <li><a onclick="showPage('teens')">Teen Programs</a></li>
+                <li><a onclick="showPage('volunteer')">Volunteer</a></li>
+                <li><a onclick="showPage('contact')">Contact</a></li>
+                <li><a onclick="showPage('donate')">Donate</a></li>
+            </ul>
+            <button class="mobile-menu-btn" id="mobileMenuBtn">☰</button>
+        </div>
+    </nav>
+
+    <!-- Home Page -->
+    <div id="home" class="page-section home active">
+        <!-- Hero Section -->
+        <section class="hero">
+            <div class="container">
+                <div class="hero-content">
+                    <div class="hero-text" data-aos="fade-right" data-aos-duration="1000" data-aos-delay="200">
+                        <h1>Shield Communities. <span>Empower Youth.</span></h1>
+                        <p>Protecting vulnerable communities while empowering the next generation to lead with purpose and vision.</p>
+                        <a href="#" class="cta-button" onclick="showPage('donate')">Make Impact Today</a>
+                    </div>
+                    <div class="hero-image" data-aos="fade-left" data-aos-duration="1000" data-aos-delay="400">
+                        <img src="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 600 400'><rect fill='%231A1A2E' width='600' height='400'/><circle fill='%232D1B69' cx='150' cy='150' r='80' opacity='0.8'/><circle fill='%233D28A0' cx='450' cy='200' r='100' opacity='0.6'/><circle fill='%235E5CE6' cx='300' cy='300' r='60' opacity='0.9'/><text x='300' y='200' text-anchor='middle' fill='%23BF5AF2' font-size='24' font-family='Inter, sans-serif'>Youth Empowerment</text></svg>" alt="Youth empowerment and community protection">
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Impact Statistics -->
+        <section class="impact-stats">
+            <div class="container">
+                <div class="stats-grid">
+                    <div class="stat-card" data-aos="fade-up" data-aos-duration="800" data-aos-delay="200">
+                        <div class="stat-icon">🏠</div>
+                        <div class="stat-number">150K+</div>
+                        <div class="stat-label">Families Protected</div>
+                    </div>
+                    <div class="stat-card" data-aos="fade-up" data-aos-duration="800" data-aos-delay="400">
+                        <div class="stat-icon">🌱</div>
+                        <div class="stat-number">2.3M</div>
+                        <div class="stat-label">Teens Empowered</div>
+                    </div>
+                    <div class="stat-card" data-aos="fade-up" data-aos-duration="800" data-aos-delay="600">
+                        <div class="stat-icon">🤝</div>
+                        <div class="stat-number">85K</div>
+                        <div class="stat-label">Active Volunteers</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- CTA Sections -->
+        <section class="cta-sections">
+            <div class="container" style="display: contents;">
+                <div class="cta-card" data-aos="fade-right" data-aos-duration="800" data-aos-delay="200">
+                    <h3>Volunteer</h3>
+                    <p>Join our global network of changemakers making real impact in communities worldwide.</p>
+                    <a href="#" class="cta-button" onclick="showPage('volunteer')">Start Volunteering</a>
+                </div>
+                <div class="cta-card" data-aos="fade-left" data-aos-duration="800" data-aos-delay="400">
+                    <h3>Advocate</h3>
+                    <p>Amplify your voice for climate action and community resilience through our advocacy programs.</p>
+                    <a href="#" class="cta-button" onclick="showPage('about')">Join Movement</a>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <!-- Teen Programs Pages -->
+    <div id="teens" class="page-section">
+        <div id="teen-page-1" class="teen-page active">
+            <section style="padding: 8rem 0 4rem;">
+                <div class="container">
+                    <div class="teen-intro">
+                        <div data-aos="fade-right" data-aos-duration="800">
+                            <h2>Empower teens. <span>Shape bright futures.</span></h2>
+                            <p>Every teenager deserves the tools, support, and opportunities to thrive. Our comprehensive programs connect young people with mentors, resources, and real-world experiences that build confidence, develop skills, and create pathways to success.</p>
+                            <br>
+                            <a href="#" class="cta-button" onclick="nextTeenPage()">Discover Programs</a>
+                        </div>
+                        <div class="hero-image floating" data-aos="fade-left" data-aos-duration="800" data-aos-delay="200">
+                            <img src="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 600 400'><rect fill='%231A1A2E' width='600' height='400'/><circle fill='%232D1B69' cx='200' cy='150' r='70' opacity='0.7'/><circle fill='%233D28A0' cx='400' cy='250' r='90' opacity='0.5'/><text x='300' y='200' text-anchor='middle' fill='%23BF5AF2' font-size='20' font-family='Inter, sans-serif'>Bright Futures</text><text x='300' y='230' text-anchor='middle' fill='%23BF5AF2' font-size='16' font-family='Inter, sans-serif'>Start Here</text></svg>" alt="Teenagers engaged in empowerment activities">
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </div>
+
+        <div id="teen-page-2" class="teen-page">
+            <section style="padding: 8rem 0 4rem;">
+                <div class="container">
+                    <div class="section-header" data-aos="fade-up" data-aos-duration="800">
+                        <h2>Our <span>Teen Empowerment</span> Programs</h2>
+                        <p>Comprehensive support for the next generation of leaders</p>
+                    </div>
+                    <div class="services-grid">
+                        <div class="service-card" data-aos="fade-up" data-aos-duration="800" data-aos-delay="100">
+                            <div class="service-icon">📚</div>
+                            <h3>Academic Success</h3>
+                            <p>Tutoring, study skills, and college prep to help teens excel in their education.</p>
+                        </div>
+                        <div class="service-card" data-aos="fade-up" data-aos-duration="800" data-aos-delay="200">
+                            <div class="service-icon">🧠</div>
+                            <h3>Mental Health</h3>
+                            <p>Counseling, stress management, and wellness resources for emotional wellbeing.</p>
+                        </div>
+                        <div class="service-card" data-aos="fade-up" data-aos-duration="800" data-aos-delay="300">
+                            <div class="service-icon">💼</div>
+                            <h3>Career Guidance</h3>
+                            <p>Internships, job shadowing, and career exploration to discover passions.</p>
+                        </div>
+                        <div class="service-card" data-aos="fade-up" data-aos-duration="800" data-aos-delay="400">
+                            <div class="service-icon">🔧</div>
+                            <h3>Life Skills</h3>
+                            <p>Financial literacy, communication, and practical skills for independent living.</p>
+                        </div>
+                        <div class="service-card" data-aos="fade-up" data-aos-duration="800" data-aos-delay="500">
+                            <div class="service-icon">🌟</div>
+                            <h3>Personal Growth</h3>
+                            <p>Leadership development, confidence building, and self-discovery workshops.</p>
+                        </div>
+                        <div class="service-card" data-aos="fade-up" data-aos-duration="800" data-aos-delay="600">
+                            <div class="service-icon">👥</div>
+                            <h3>Mentorship</h3>
+                            <p>One-on-one guidance from caring adults who believe in each teen's potential.</p>
+                        </div>
+                    </div>
+                    <div style="text-align: center; margin-top: 3rem;">
+                        <a href="#" class="cta-button" onclick="nextTeenPage()">Learn More</a>
+                    </div>
+                </div>
+            </section>
+        </div>
+
+        <div id="teen-page-3" class="teen-page">
+            <section class="big-card-section">
+                <div class="container">
+                    <div class="big-card" data-aos="zoom-in" data-aos-duration="800">
+                        <h2>Why Choose <span>GSI Teen Programs?</span></h2>
+                        <ul>
+                            <li>Workshops for real-life skills and growth</li>
+                            <li>Mentorship that inspires and guides</li>
+                            <li>Resources to boost confidence and success</li>
+                            <li>Safe spaces for expression and connection</li>
+                            <li>Pathways to future opportunities</li>
+                        </ul>
+                        <br>
+                        <a href="#" class="cta-button" onclick="nextTeenPage()">See Success Stories</a>
+                    </div>
+                </div>
+            </section>
+        </div>
+
+        <div id="teen-page-4" class="teen-page">
+            <section style="padding: 8rem 0 4rem;">
+                <div class="container">
+                    <div class="section-header" data-aos="fade-up" data-aos-duration="800">
+                        <h2>Empower teens. <span>Shape your future.</span></h2>
+                        <p>Join millions of teens who have transformed their lives</p>
+                    </div>
+                    <div class="layout-cards">
+                        <div class="main-card" data-aos="fade-right" data-aos-duration="800">
+                            <h3 style="font-size: 2.2rem; margin-bottom: 1.5rem; color: var(--white);">Join 2.3M+ Teens</h3>
+                            <p style="font-size: 1.3rem; color: var(--gray-2);">Who've transformed their lives through our programs. Your journey to success starts here.</p>
+                            <br>
+                            <a href="#" class="cta-button" onclick="nextTeenPage()">Get Started Now</a>
+                        </div>
+                        <div class="side-cards">
+                            <div class="side-card" data-aos="fade-left" data-aos-duration="800" data-aos-delay="100">
+                                <div>
+                                    <h4 style="color: var(--white);">Free Programs</h4>
+                                    <p style="color: var(--gray-2);">No cost barriers</p>
+                                </div>
+                            </div>
+                            <div class="side-card" data-aos="fade-left" data-aos-duration="800" data-aos-delay="200">
+                                <div>
+                                    <h4 style="color: var(--white);">Expert Mentors</h4>
+                                    <p style="color: var(--gray-2);">Caring guidance</p>
+                                </div>
+                            </div>
+                            <div class="side-card" data-aos="fade-left" data-aos-duration="800" data-aos-delay="300">
+                                <div>
+                                    <h4 style="color: var(--white);">Real Results</h4>
+                                    <p style="color: var(--gray-2);">Proven success</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </div>
+
+        <div id="teen-page-5" class="teen-page">
+            <section style="padding: 8rem 0 4rem;">
+                <div class="container">
+                    <div class="section-header" data-aos="fade-up" data-aos-duration="800">
+                        <h2>Quick answers, <span>just for teens.</span></h2>
+                        <p>Common questions about our programs</p>
+                    </div>
+                    <div class="faq-section">
+                        <div class="faq-item" data-aos="fade-up" data-aos-duration="800" data-aos-delay="100">
+                            <div class="faq-question" onclick="toggleFaq(this)">
+                                How can I handle school stress better?
+                                <span>+</span>
+                            </div>
+                            <div class="faq-answer">
+                                Start with time management - break big tasks into smaller chunks, use a planner, and set realistic goals. Don't forget to take breaks, get enough sleep, and talk to someone when you're feeling overwhelmed. Our mentors can help you create a personalized stress management plan.
+                            </div>
+                        </div>
+                        <div class="faq-item" data-aos="fade-up" data-aos-duration="800" data-aos-delay="200">
+                            <div class="faq-question" onclick="toggleFaq(this)">
+                                I'm worried about my future. What should I do?
+                                <span>+</span>
+                            </div>
+                            <div class="faq-answer">
+                                It's totally normal to feel uncertain about the future! Start by exploring your interests through our career guidance program. Try different activities, talk to professionals in fields that interest you, and remember that it's okay to change directions as you learn more about yourself.
+                            </div>
+                        </div>
+                        <div class="faq-item" data-aos="fade-up" data-aos-duration="800" data-aos-delay="300">
+                            <div class="faq-question" onclick="toggleFaq(this)">
+                                How can I make friends and build confidence?
+                                <span>+</span>
+                            </div>
+                            <div class="faq-answer">
+                                Join activities that match your interests - it's easier to connect with people who share your passions. Be yourself, practice active listening, and don't be afraid to start conversations. Our social skills workshops and peer support groups can help you build confidence naturally.
+                            </div>
+                        </div>
+                        <div class="faq-item" data-aos="fade-up" data-aos-duration="800" data-aos-delay="400">
+                            <div class="faq-question" onclick="toggleFaq(this)">
+                                What if I'm struggling with mental health?
+                                <span>+</span>
+                            </div>
+                            <div class="faq-answer">
+                                You're not alone, and seeking help shows strength, not weakness. We offer confidential counseling services, peer support groups, and wellness workshops. If you're in crisis, reach out to a trusted adult, call a helpline, or contact our emergency support team immediately.
+                            </div>
+                        </div>
+                        <div class="faq-item" data-aos="fade-up" data-aos-duration="800" data-aos-delay="500">
+                            <div class="faq-question" onclick="toggleFaq(this)">
+                                How do I get started with GSI programs?
+                                <span>+</span>
+                            </div>
+                            <div class="faq-answer">
+                                Simply fill out our online application or contact us directly. We'll match you with programs that fit your interests and goals. All our teen programs are completely free, and we provide support every step of the way.
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </div>
+    </div>
+
+    <!-- Contact Page -->
+    <div id="contact" class="page-section">
+        <section class="contact-section">
+            <div class="container">
+                <div class="section-header" data-aos="fade-up" data-aos-duration="800">
+                    <h2>Let's chat about <span>making a difference</span></h2>
+                    <p>Ready to join our mission? We'd love to hear from you!</p>
+                </div>
+                <div class="contact-content">
+                    <div class="contact-form" data-aos="fade-right" data-aos-duration="800">
+                        <form id="contactForm">
+                            <div class="form-group">
+                                <label for="name">Name</label>
+                                <input type="text" id="name" name="name" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="email">Email</label>
+                                <input type="email" id="email" name="email" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="phone">Phone (Optional)</label>
+                                <input type="tel" id="phone" name="phone">
+                            </div>
+                            <div class="form-group">
+                                <label for="organization">Organization</label>
+                                <input type="text" id="organization" name="organization">
+                            </div>
+                            <div class="form-group">
+                                <label for="message">Message</label>
+                                <textarea id="message" name="message" rows="5" required></textarea>
+                            </div>
+                            <button type="submit" class="cta-button" style="width: 100%;">Send Message</button>
+                        </form>
+                    </div>
+                    <div data-aos="fade-left" data-aos-duration="800" data-aos-delay="200">
+                        <h3 style="font-size: 1.8rem; margin-bottom: 1.5rem; color: var(--white);">Get in Touch</h3>
+                        <div style="margin-bottom: 2rem;">
+                            <p style="color: var(--gray-2);"><strong style="color: var(--white);">Email:</strong> hello@globalshield.org</p>
+                            <p style="color: var(--gray-2);"><strong style="color: var(--white);">Phone:</strong> +1-800-SHIELD-1</p>
+                            <p style="color: var(--gray-2);"><strong style="color: var(--white);">Address:</strong> 123 Impact Way, San Francisco, CA 94105</p>
+                        </div>
+                        <h4 style="margin-bottom: 1rem; color: var(--white);">Follow Our Impact</h4>
+                        <div class="social-links">
+                            <a href="#" class="social-link">📘</a>
+                            <a href="#" class="social-link">🐦</a>
+                            <a href="#" class="social-link">📷</a>
+                            <a href="#" class="social-link">💼</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <!-- Donate Page -->
+    <div id="donate" class="page-section">
+        <section style="padding: 8rem 0 4rem;">
+            <div class="container">
+                <div class="section-header" data-aos="fade-up" data-aos-duration="800">
+                    <h2>Make <span>Impact Today</span></h2>
+                    <p>Your donation protects communities and empowers the next generation of leaders.</p>
+                </div>
+                <div style="max-width: 600px; margin: 0 auto;">
+                    <div class="contact-form" data-aos="zoom-in" data-aos-duration="800">
+                        <h3 style="text-align: center; margin-bottom: 2rem; color: var(--white);">Choose Your Impact Level</h3>
+                        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(120px, 1fr)); gap: 1rem; margin-bottom: 2rem;">
+                            <button class="donation-amount" onclick="selectAmount(25)">$25</button>
+                            <button class="donation-amount" onclick="selectAmount(50)">$50</button>
+                            <button class="donation-amount" onclick="selectAmount(100)">$100</button>
+                            <button class="donation-amount" onclick="selectAmount(250)">$250</button>
+                        </div>
+                        <form id="donationForm">
+                            <div class="form-group">
+                                <label for="custom-amount">Custom Amount ($)</label>
+                                <input type="number" id="custom-amount" name="amount" min="1" placeholder="Enter amount">
+                            </div>
+                            <div class="form-group">
+                                <label for="donor-name">Full Name</label>
+                                <input type="text" id="donor-name" name="donor-name" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="donor-email">Email</label>
+                                <input type="email" id="donor-email" name="donor-email" required>
+                            </div>
+                            <div style="margin-bottom: 2rem;">
+                                <label style="display: flex; align-items: center; gap: 0.5rem; color: var(--gray-2);">
+                                    <input type="checkbox" name="monthly" style="width: auto;">
+                                    <span>Make this a monthly donation</span>
+                                </label>
+                            </div>
+                            <button type="submit" class="cta-button" style="width: 100%; font-size: 1.2rem;">Secure Donation</button>
+                        </form>
+                        <div style="text-align: center; margin-top: 2rem; font-size: 0.9rem; color: var(--gray-3);">
+                            <p>🔒 Secure SSL encryption • 📊 100% transparent reporting • 🏆 GuideStar Gold Seal</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <!-- About Page -->
+    <div id="about" class="page-section">
+        <section style="padding: 8rem 0 4rem;">
+            <div class="container">
+                <div class="section-header" data-aos="fade-up" data-aos-duration="800">
+                    <h2>About <span>Global Shield Initiative</span></h2>
+                    <p>Protecting communities, empowering youth since 2018</p>
+                </div>
+                <div style="max-width: 800px; margin: 0 auto; text-align: center;">
+                    <p style="font-size: 1.2rem; line-height: 1.6; margin-bottom: 2rem; color: var(--gray-2);" data-aos="fade-up" data-aos-duration="800" data-aos-delay="200">
+                        Founded in 2018, Global Shield Initiative emerged from a simple belief: communities facing climate disasters deserve both immediate protection and long-term empowerment. We bridge emergency response with sustainable development, always with young people at the center of our mission.
+                    </p>
+                    <p style="font-size: 1.2rem; line-height: 1.6; margin-bottom: 3rem; color: var(--gray-2);" data-aos="fade-up" data-aos-duration="800" data-aos-delay="400">
+                        Today, we operate in 45 countries, protecting vulnerable communities through emergency response, resilient infrastructure, and advocacy while empowering over 2.3 million teens with the skills, confidence, and opportunities they need to become tomorrow's changemakers.
+                    </p>
+                </div>
+                <div class="services-grid">
+                    <div class="service-card" data-aos="fade-up" data-aos-duration="800" data-aos-delay="100">
+                        <div class="service-icon">🚨</div>
+                        <h3>Emergency Response</h3>
+                        <p>Rapid deployment teams providing immediate aid during climate disasters and natural emergencies.</p>
+                    </div>
+                    <div class="service-card" data-aos="fade-up" data-aos-duration="800" data-aos-delay="200">
+                        <div class="service-icon">🏗️</div>
+                        <h3>Resilient Infrastructure</h3>
+                        <p>Building climate-adaptive infrastructure that protects communities for generations.</p>
+                    </div>
+                    <div class="service-card" data-aos="fade-up" data-aos-duration="800" data-aos-delay="300">
+                        <div class="service-icon">📢</div>
+                        <h3>Climate Advocacy</h3>
+                        <p>Amplifying community voices in climate policy and pushing for systemic change.</p>
+                    </div>
+                    <div class="service-card" data-aos="fade-up" data-aos-duration="800" data-aos-delay="400">
+                        <div class="service-icon">🌟</div>
+                        <h3>Youth Empowerment</h3>
+                        <p>Comprehensive programs that prepare teens to lead in their communities and beyond.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <!-- Volunteer Page -->
+    <div id="volunteer" class="page-section">
+        <section style="padding: 8rem 0 4rem;">
+            <div class="container">
+                <div class="section-header" data-aos="fade-up" data-aos-duration="800">
+                    <h2>Join Our <span>Global Movement</span></h2>
+                    <p>85,000+ volunteers worldwide are making real change happen. Find your way to contribute.</p>
+                </div>
+                <div class="services-grid">
+                    <div class="service-card" data-aos="fade-up" data-aos-duration="800" data-aos-delay="100">
+                        <div class="service-icon">👨‍🏫</div>
+                        <h3>Teen Mentor</h3>
+                        <p>Guide and inspire teenagers through our empowerment programs.</p>
+                        <br>
+                        <a href="#" class="cta-button" onclick="showPage('contact')">Apply Now</a>
+                    </div>
+                    <div class="service-card" data-aos="fade-up" data-aos-duration="800" data-aos-delay="200">
+                        <div class="service-icon">🛠️</div>
+                        <h3>Disaster Response</h3>
+                        <p>Join emergency response teams helping communities in crisis.</p>
+                        <br>
+                        <a href="#" class="cta-button" onclick="showPage('contact')">Learn More</a>
+                    </div>
+                    <div class="service-card" data-aos="fade-up" data-aos-duration="800" data-aos-delay="300">
+                        <div class="service-icon">💻</div>
+                        <h3>Digital Support</h3>
+                        <p>Use your tech skills to amplify our impact from anywhere.</p>
+                        <br>
+                        <a href="#" class="cta-button" onclick="showPage('contact')">Get Started</a>
+                    </div>
+                    <div class="service-card" data-aos="fade-up" data-aos-duration="800" data-aos-delay="400">
+                        <div class="service-icon">📝</div>
+                        <h3>Advocacy</h3>
+                        <p>Help us influence policy and drive systemic change.</p>
+                        <br>
+                        <a href="#" class="cta-button" onclick="showPage('contact')">Join Campaign</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div data-aos="fade-up" data-aos-duration="800" data-aos-delay="100">
+                    <h4>Our Mission</h4>
+                    <p>Protecting vulnerable communities from climate impacts while empowering youth to lead positive change.</p>
+                </div>
+                <div data-aos="fade-up" data-aos-duration="800" data-aos-delay="200">
+                    <h4>Transparency</h4>
+                    <p>We believe in complete openness. 87% of donations go directly to programs. View our detailed financial reports and impact metrics anytime on our transparency portal.</p>
+                </div>
+                <div data-aos="fade-up" data-aos-duration="800" data-aos-delay="300">
+                    <h4>Contact</h4>
+                    <p>hello@globalshield.org<br>+1-800-SHIELD-1</p>
+                </div>
+            </div>
+            <div class="trust-badges">
+                <div class="trust-badge" data-aos="fade-up" data-aos-duration="800" data-aos-delay="100">⭐ GuideStar Gold</div>
+                <div class="trust-badge" data-aos="fade-up" data-aos-duration="800" data-aos-delay="200">🔒 SSL Secured</div>
+                <div class="trust-badge" data-aos="fade-up" data-aos-duration="800" data-aos-delay="300">📊 4-Star Charity</div>
+                <div class="trust-badge" data-aos="fade-up" data-aos-duration="800" data-aos-delay="400">✅ Verified Impact</div>
+            </div>
+            <div style="border-top: 1px solid rgba(255,255,255,0.1); padding-top: 1.5rem; margin-top: 3rem; text-align: center;">
+                <p style="color: var(--gray-3);">&copy; 2025 Global Shield Initiative. Making impact together.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Navigation Buttons -->
+    <div class="nav-buttons">
+        <button class="nav-btn" onclick="prevPage()" title="Previous">‹</button>
+        <button class="nav-btn" onclick="nextPage()" title="Next">›</button>
+    </div>
+
+    <!-- AOS Library Script -->
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+        // Initialize AOS
+        AOS.init({
+            duration: 800,
+            easing: 'ease-in-out',
+            once: true,
+            mirror: false
+        });
+
+        // State management
+        let currentTeenPage = 1;
+        const maxTeenPages = 5;
+        let currentPage = 'home';
+        const pages = ['home', 'about', 'teens', 'volunteer', 'contact', 'donate'];
+
+        // DOM elements
+        const navMenu = document.getElementById('navMenu');
+        const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+        const progressBar = document.getElementById('progressBar');
+        const contactForm = document.getElementById('contactForm');
+        const donationForm = document.getElementById('donationForm');
+
+        // Toggle mobile menu
+        mobileMenuBtn.addEventListener('click', () => {
+            navMenu.classList.toggle('active');
+            mobileMenuBtn.textContent = navMenu.classList.contains('active') ? '✕' : '☰';
+        });
+
+        // Update progress bar on scroll
+        window.addEventListener('scroll', () => {
+            const windowHeight = window.innerHeight;
+            const documentHeight = document.documentElement.scrollHeight;
+            const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+            const scrollPercent = (scrollTop / (documentHeight - windowHeight)) * 100;
+            progressBar.style.width = scrollPercent + '%';
+        });
+
+        // Page navigation functions
+        function showPage(pageId) {
+            // Hide all pages
+            const pages = document.querySelectorAll('.page-section');
+            pages.forEach(page => page.classList.remove('active'));
+            
+            // Show selected page
+            const targetPage = document.getElementById(pageId);
+            if (targetPage) {
+                targetPage.classList.add('active');
+                currentPage = pageId;
+                window.scrollTo(0, 0);
+                
+                // Refresh AOS animations when switching pages
+                setTimeout(() => {
+                    AOS.refresh();
+                }, 100);
+            }
+            
+            // Reset teen pages when navigating away
+            if (pageId !== 'teens') {
+                currentTeenPage = 1;
+                showTeenPage(1);
+            }
+            
+            // Close mobile menu if open
+            if (navMenu.classList.contains('active')) {
+                navMenu.classList.remove('active');
+                mobileMenuBtn.textContent = '☰';
+            }
+        }
+
+        function showTeenPage(pageNum) {
+            const teenPages = document.querySelectorAll('.teen-page');
+            teenPages.forEach(page => page.classList.remove('active'));
+            
+            const targetPage = document.getElementById(`teen-page-${pageNum}`);
+            if (targetPage) {
+                targetPage.classList.add('active');
+                window.scrollTo(0, 100);
+                
+                // Refresh AOS animations when switching teen pages
+                setTimeout(() => {
+                    AOS.refresh();
+                }, 100);
+            }
+        }
+
+        function nextTeenPage() {
+            if (currentTeenPage < maxTeenPages) {
+                currentTeenPage++;
+                showTeenPage(currentTeenPage);
+            }
+        }
+
+        function prevTeenPage() {
+            if (currentTeenPage > 1) {
+                currentTeenPage--;
+                showTeenPage(currentTeenPage);
+            }
+        }
+
+        function nextPage() {
+            const currentPageElement = document.querySelector('.page-section.active');
+            if (currentPageElement && currentPageElement.id === 'teens') {
+                nextTeenPage();
+            } else {
+                // Navigate between main pages
+                const currentIndex = pages.indexOf(currentPage);
+                if (currentIndex < pages.length - 1) {
+                    showPage(pages[currentIndex + 1]);
+                }
+            }
+        }
+
+        function prevPage() {
+            const currentPageElement = document.querySelector('.page-section.active');
+            if (currentPageElement && currentPageElement.id === 'teens') {
+                prevTeenPage();
+            } else {
+                // Navigate between main pages
+                const currentIndex = pages.indexOf(currentPage);
+                if (currentIndex > 0) {
+                    showPage(pages[currentIndex - 1]);
+                }
+            }
+        }
+
+        // FAQ toggle function
+        function toggleFaq(element) {
+            const answer = element.nextElementSibling;
+            const icon = element.querySelector('span');
+            answer.classList.toggle('active');
+            icon.textContent = answer.classList.contains('active') ? '−' : '+';
+        }
+
+        // Donation amount selection
+        function selectAmount(amount) {
+            const customAmountInput = document.getElementById('custom-amount');
+            customAmountInput.value = amount;
+            
+            // Visual feedback
+            const buttons = document.querySelectorAll('.donation-amount');
+            buttons.forEach(btn => btn.classList.remove('selected'));
+            event.target.classList.add('selected');
+        }
+
+        // Form handling
+        if (contactForm) {
+            contactForm.addEventListener('submit', function(e) {
+                e.preventDefault();
+                // Form validation and submission logic would go here
+                alert('Thank you for your message! We will get back to you soon.');
+                this.reset();
+            });
+        }
+
+        if (donationForm) {
+            donationForm.addEventListener('submit', function(e) {
+                e.preventDefault();
+                // Form validation and submission logic would go here
+                const amount = document.getElementById('custom-amount').value;
+                alert(`Thank you for your $${amount} donation! Your support makes a difference.`);
+                this.reset();
+                
+                // Reset selected amount buttons
+                const buttons = document.querySelectorAll('.donation-amount');
+                buttons.forEach(btn => btn.classList.remove('selected'));
+            });
+        }
+
+        // Keyboard navigation
+        document.addEventListener('keydown', function(e) {
+            if (e.key === 'ArrowRight' || e.key === ' ') {
+                e.preventDefault();
+                nextPage();
+            } else if (e.key === 'ArrowLeft') {
+                e.preventDefault();
+                prevPage();
+            } else if (e.key === 'Escape') {
+                // Close mobile menu if open
+                if (navMenu.classList.contains('active')) {
+                    navMenu.classList.remove('active');
+                    mobileMenuBtn.textContent = '☰';
+                }
+            }
+        });
+
+        // Add donation button styles
+        const style = document.createElement('style');
+        style.textContent = `
+            .donation-amount {
+                background: rgba(15, 15, 30, 0.5);
+                border: 1px solid rgba(94, 92, 230, 0.2);
+                color: var(--gray-2);
+                padding: 1.2rem;
+                border-radius: var(--radius-sm);
+                font-size: 17px;
+                font-weight: 500;
+                cursor: pointer;
+                transition: var(--transition);
+            }
+            
+            .donation-amount:hover, .donation-amount.selected {
+                border-color: var(--deep-purple-3);
+                background: var(--deep-purple-3);
+                color: var(--white);
+                transform: translateY(-3px);
+                box-shadow: 0 8px 20px rgba(94, 92, 230, 0.3);
+            }
+            
+            .teen-page {
+                display: none;
+            }
+            
+            .teen-page.active {
+                display: block;
+            }
+        `;
+        document.head.appendChild(style);
+    </script>
+</body>
+</html>
